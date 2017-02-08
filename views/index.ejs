@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="nav">
+      <h1><%= title %></h1>
+      <p>Welcome to <%= title %></p>
+    </div>
+    <div class="row">
+      <div class="col-md-8" id="map">
+
+      </div>
+
+      <div class="col-md-4 new-form">
+        <input type="text" name="" value="">
+        <input type="submit" name="" value="Locate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">Title here</h3>
+          </div>
+          <div class="panel-body">
+            <p>body text</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+  <script type="text/javascript" src="/javascripts/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript">
+    var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: new google.maps.LatLng(<%= location.lat %>, <%= location.lng %>)
+      });
+      console.log("initMap called");
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJw8xCqwk3VuTG2gEF6m_y3ULXauDyiAo&callback=initMap"></script>
+  </body>
+</html>
